@@ -43,16 +43,19 @@ public class HtmlComponent {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        if (!tag.equals("")) {
+        if (!this.getTag().equals("")) {
             result.append("<").append(this.getTag()).append(">\n");
         }
         result.append(this.getContent());
-        for (HtmlComponent comp : this.components)
+        if (!this.getContent().equals("")) {
+            result.append("\n");
+        }
+        for (HtmlComponent comp : this.getComponents())
         {
             result.append(comp.toString());
         }
-        if (!tag.equals("")) {
-            result.append("\n</").append(this.getTag()).append(">\n");
+        if (!this.getTag().equals("")) {
+            result.append("</").append(this.getTag()).append(">\n");
         }
         return result.toString();
     }
