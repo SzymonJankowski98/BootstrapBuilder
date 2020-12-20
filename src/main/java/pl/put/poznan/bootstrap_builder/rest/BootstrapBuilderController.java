@@ -6,41 +6,29 @@ import pl.put.poznan.bootstrap_builder.logic.BootstrapBuilder;
 
 import java.util.Arrays;
 
+class Test {
+
+    private final String content;
+
+    public Test(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+}
 
 @RestController
-@RequestMapping("/{text}")
 public class BootstrapBuilderController {
 
     private static final Logger logger = LoggerFactory.getLogger(BootstrapBuilderController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
-
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-        BootstrapBuilder transformer = new BootstrapBuilder(transforms);
-        return transformer.transform(text);
+    @GetMapping(value = "/template")
+    public String test(@RequestParam(value="test", defaultValue="xxx") String test) {
+        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder();
+        return bootstrapBuilder.create();
     }
-
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
-
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-        BootstrapBuilder transformer = new BootstrapBuilder(transforms);
-        return transformer.transform(text);
-    }
-
-
-
 }
 
 

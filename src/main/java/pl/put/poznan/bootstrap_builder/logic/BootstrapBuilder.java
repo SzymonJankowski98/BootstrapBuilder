@@ -5,14 +5,9 @@ package pl.put.poznan.bootstrap_builder.logic;
  */
 public class BootstrapBuilder {
 
-    private final String[] transforms;
-
-    public BootstrapBuilder(String[] transforms){
-        this.transforms = transforms;
-    }
-
-    public String transform(String text){
-        // of course, normally it would do something based on the transforms
-        return text.toUpperCase();
+    public String create(){
+        Head head = new Head();
+        Body body = new Body();
+        return "<html>"+ head.toString() + body.toString() + "</html>";
     }
 }
