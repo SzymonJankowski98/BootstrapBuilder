@@ -9,9 +9,11 @@ import java.util.ArrayList;
 public class BootstrapBuilder {
 
     String nav = "";
+    private String foot = "";
 
-    public BootstrapBuilder(String nav) {
+    public BootstrapBuilder(String nav, String foot) {
         this.nav = nav;
+        this.foot = foot;
     }
 
     public String create() {
@@ -36,10 +38,16 @@ public class BootstrapBuilder {
         if (this.nav.equals("fixed")) {
             body_components.add(new Nav(true));
         }
+
+        if (this.foot.equals("true")) {
+            HtmlComponent footer = new HtmlComponent("footer", "", new ArrayList<>());
+            body_components.add(footer);
+        }
         Body body = new Body(body_components);
         result += body.toString();
 
         result += "</html>";
+
         return result;
     }
 }
