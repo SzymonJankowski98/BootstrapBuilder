@@ -8,6 +8,6 @@ public class Body extends HtmlComponent {
         this(new ArrayList<HtmlComponent>());
     }
     public Body(ArrayList<HtmlComponent> components) {
-        super("body", "body content", components);
+        super("body", "", components);
     }
 }

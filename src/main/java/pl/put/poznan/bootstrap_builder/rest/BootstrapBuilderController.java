@@ -10,8 +10,8 @@ public class BootstrapBuilderController {
     private static final Logger logger = LoggerFactory.getLogger(BootstrapBuilderController.class);
 
     @GetMapping(value = "/template")
-    public String test(@RequestParam(value="test", defaultValue="xxx") String test) {
-        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder();
+    public String test(@RequestParam(value="nav", defaultValue="fixed") String nav) {
+        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(nav);
         return bootstrapBuilder.create();
     }
 }
