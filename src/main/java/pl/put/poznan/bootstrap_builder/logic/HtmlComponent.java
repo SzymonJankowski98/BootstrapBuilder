@@ -42,13 +42,13 @@ public class HtmlComponent {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("<" + this.getTag() + ">");
+        StringBuilder result = new StringBuilder("<" + this.getTag() + ">\n");
         result.append(this.getContent());
         for (HtmlComponent comp : this.components)
         {
             result.append(comp.toString());
         }
-        result.append("</").append(this.getTag()).append(">");
+        result.append("\n</").append(this.getTag()).append(">\n");
         return result.toString();
     }
 }

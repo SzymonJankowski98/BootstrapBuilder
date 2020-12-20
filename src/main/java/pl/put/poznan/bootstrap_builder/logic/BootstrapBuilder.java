@@ -8,6 +8,6 @@ public class BootstrapBuilder {
     public String create(){
         Head head = new Head();
         Body body = new Body();
-        return "<html>"+ head.toString() + body.toString() + "</html>";
+        return "<html>\n"+ head.toString() + body.toString() + "</html>";
     }
 }
