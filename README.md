@@ -1,4 +1,4 @@
-![Build status](https://travis-ci.com/SzymonJankowski98/BootstrapBuilder.svg?branch=master)
+[![Build status](https://travis-ci.com/SzymonJankowski98/BootstrapBuilder.svg?branch=master)](https://travis-ci.com/github/SzymonJankowski98/BootstrapBuilder)
 
 # BootstrapBuilder 
 University project for software engineering. 
