@@ -31,7 +31,7 @@ public class BootstrapBuilder {
         result += head.toString();
 
         ArrayList<HtmlComponent> body_components = new ArrayList<HtmlComponent>();
-        body_components.add(new Main());
+        body_components.add(new HtmlComponent("", "<main class=\"container\">\n</main>", new ArrayList<>()));
         if (this.nav.equals("static")) {
             body_components.add(new Nav(false));
         }
