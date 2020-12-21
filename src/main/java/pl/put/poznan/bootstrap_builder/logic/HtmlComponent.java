@@ -3,12 +3,22 @@ package pl.put.poznan.bootstrap_builder.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class of Html components.
+ * Every component has a tag, content and list of components inside.
+ */
 public class HtmlComponent {
 
     private String tag;
     private String content;
     private ArrayList <HtmlComponent> components;
 
+    /**
+     * Constructor of Html Component
+     * @param tag - String in tag
+     * @param content - String between opening and closing tag
+     * @param components - ArrayList of other components that can be inside this html component
+     */
     public HtmlComponent(String tag, String content, ArrayList<HtmlComponent> components) {
         this.tag = tag;
         this.content = content;
@@ -40,6 +50,10 @@ public class HtmlComponent {
         return this.components;
     }
 
+    /**
+     * Provides String of this html component with components inside it
+     * @return Complete String of this component
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

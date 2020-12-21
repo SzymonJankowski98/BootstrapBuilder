@@ -4,18 +4,27 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * This is just an example to show that the logic should be outside the REST service.
+ * Main class of Bootstrap Builder.
  */
 public class BootstrapBuilder {
 
     String nav = "";
     private String foot = "";
 
+    /**
+     * Constructor of Bootstrap Builder. In parameters you decide if you want to add tags
+     * @param nav - dynamic header ("fixed"), static header ("static")
+     * @param foot - includes footer in body ("true")
+     */
     public BootstrapBuilder(String nav, String foot) {
         this.nav = nav;
         this.foot = foot;
     }
 
+    /**
+     * Creates basic html code with basics and additionally wanted tags.
+     * @return String of your html code
+     */
     public String create() {
         String result = "<!doctype html>\n" +
                         "<html lang=\"pl\">\n"+
@@ -30,20 +39,20 @@ public class BootstrapBuilder {
         Head head = new Head();
         result += head.toString();
 
-        ArrayList<HtmlComponent> body_components = new ArrayList<HtmlComponent>();
-        body_components.add(new HtmlComponent("", "<main class=\"container\">\n</main>", new ArrayList<>()));
+        Body body = new Body();
+
+        body.addComponent(new HtmlComponent("", "<main class=\"container\">\n</main>", new ArrayList<>()));
         if (this.nav.equals("static")) {
-            body_components.add(new Nav(false));
+            body.addComponent(new Nav(false));
         }
         if (this.nav.equals("fixed")) {
-            body_components.add(new Nav(true));
+            body.addComponent(new Nav(true));
         }
 
         if (this.foot.equals("true")) {
             HtmlComponent footer = new HtmlComponent("footer", "", new ArrayList<>());
-            body_components.add(footer);
+            body.addComponent(footer);
         }
-        Body body = new Body(body_components);
         result += body.toString();
 
         result += "</html>";

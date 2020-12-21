@@ -2,15 +2,30 @@ package pl.put.poznan.bootstrap_builder.logic;
 
 import java.util.ArrayList;
 
+/**
+ * Body class - body of html code
+ */
 public class Body extends HtmlComponent {
 
+    /**
+     * Constructor of Body class without parameters creates Body without any components inside
+     */
     public Body() {
         this(new ArrayList<HtmlComponent>());
     }
+
+    /**
+     * Constructor of Body class with 1 parameter
+     * @param components - ArrayList of components inside this Body
+     */
     public Body(ArrayList<HtmlComponent> components) {
         super("body", "", components);
     }
 
+    /**
+     * Adds scipts to String of body html code
+     * @return String of fixed body
+     */
     @Override
     public String toString() {
         String result = super.toString();
