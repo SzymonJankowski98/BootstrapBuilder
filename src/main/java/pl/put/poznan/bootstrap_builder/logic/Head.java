@@ -19,6 +19,6 @@ public class Head extends HtmlComponent {
      * @param components - ArrayList of components inside this Head
      */
     public Head(ArrayList<HtmlComponent> components) {
-        super("head", "content", components);
+        super("head", "", components);
     }
 }
