@@ -7,7 +7,7 @@ import java.util.List;
  * Class of Html components.
  * Every component has a tag, content and list of components inside.
  */
-public class HtmlComponent {
+    public class HtmlComponent {
 
     private String tag;
     private String content;
