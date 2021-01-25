@@ -7,8 +7,7 @@ import java.util.ArrayList;
  */
 public class Meta extends HtmlComponent{
 
-    String name;
-
+    private String name;
     /**
      * Constructor of Meta class with 1 parameter
      * @param name - String what should be in name parameter in this meta tag
