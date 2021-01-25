@@ -24,6 +24,29 @@ public class HtmlComponent {
         this.content = content;
         this.components = components;
     }
+    /**
+     * Provides String of this html component with components inside it
+     * @return Complete String of this component
+     */
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        if (!this.getTag().equals("")) {
+            result.append("<").append(this.getTag()).append(">\n");
+        }
+        result.append(this.getContent());
+        if (!this.getContent().equals("")) {
+            result.append("\n");
+        }
+        for (HtmlComponent comp : this.getComponents())
+        {
+            result.append(comp.toString());
+        }
+        if (!this.getTag().equals("")) {
+            result.append("</").append(this.getTag()).append(">\n");
+        }
+        return result.toString();
+    }
 
     public void setTag(String tag) {
         this.tag = tag;
@@ -48,29 +71,5 @@ public class HtmlComponent {
     public List <HtmlComponent> getComponents()
     {
         return this.components;
-    }
-
-    /**
-     * Provides String of this html component with components inside it
-     * @return Complete String of this component
-     */
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        if (!this.getTag().equals("")) {
-            result.append("<").append(this.getTag()).append(">\n");
-        }
-        result.append(this.getContent());
-        if (!this.getContent().equals("")) {
-            result.append("\n");
-        }
-        for (HtmlComponent comp : this.getComponents())
-        {
-            result.append(comp.toString());
-        }
-        if (!this.getTag().equals("")) {
-            result.append("</").append(this.getTag()).append(">\n");
-        }
-        return result.toString();
     }
 }
