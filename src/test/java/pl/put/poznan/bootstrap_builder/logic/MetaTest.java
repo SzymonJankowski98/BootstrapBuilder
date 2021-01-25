@@ -4,14 +4,20 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 
 class MetaTest {
-    public static String resExp = "<head>\n<title>Starter Template for Bootstrap</title>\n"+
-            "<link rel=\"canonical\" href=\"https://getbootstrap.com/docs/4.0/examples/starter-template/\">\n"+
-            "<link href=\"../../dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n" +
-            "</head>\n";
+    public static String resExp = "<meta name=\"\" content=\"\">\n";
+    public static String resExp2 = "<meta name=\"description\" content=\"\">\n";
+
     @Test
-    void HeaderTest() {
-        Head tester = new Head();
+    void metaFTest() {
+        Meta tester = new Meta("");
         String res = tester.toString();
         assertEquals(res,resExp);
+    }
+
+    @Test
+    void metaTest() {
+        Meta tester = new Meta("description");
+        String res = tester.toString();
+        assertEquals(res,resExp2);
     }
 }

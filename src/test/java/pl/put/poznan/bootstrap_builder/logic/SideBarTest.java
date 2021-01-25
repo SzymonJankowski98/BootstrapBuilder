@@ -7,7 +7,7 @@ class SideBarTest {
     public static String resExp = "<aside>\n" +
             "</aside>\n";
     @Test
-    void navFalseTest() {
+    void SideFalseTest() {
         SideBar tester = new SideBar();
         String res = tester.toString();
         assertEquals(res,resExp);
