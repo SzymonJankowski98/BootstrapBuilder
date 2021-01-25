@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Meta extends HtmlComponent{
 
-    String property;
+    private String property;
 
     public Meta(String property) {
         this(new ArrayList<HtmlComponent>(), property);
