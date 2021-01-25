@@ -10,14 +10,15 @@ public class BootstrapBuilder {
 
     String nav = "";
     private String foot = "";
-
+    private String sidebar = "";
     /**
      * Constructor of Bootstrap Builder. In parameters you decide if you want to add tags
      * @param nav - dynamic header ("fixed"), static header ("static")
      * @param foot - includes footer in body ("true")
      */
-    public BootstrapBuilder(String nav, String foot) {
+    public BootstrapBuilder(String nav, String sidebar, String foot) {
         this.nav = nav;
+        this.sidebar = sidebar;
         this.foot = foot;
     }
 
@@ -48,7 +49,9 @@ public class BootstrapBuilder {
         if (this.nav.equals("fixed")) {
             body.addComponent(new Nav(true));
         }
-
+        if (this.sidebar.equals("true")){
+            body.addComponent(new SideBar());
+        }
         if (this.foot.equals("true")) {
             HtmlComponent footer = new HtmlComponent("footer", "", new ArrayList<>());
             body.addComponent(footer);
