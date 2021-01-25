@@ -8,19 +8,54 @@ import java.util.ArrayList;
  */
 public class BootstrapBuilder {
 
-    String nav = "";
+    private String nav = "";
     private String foot = "";
     private String sidebar = "";
+    private String meta = "";
     /**
      * Constructor of Bootstrap Builder. In parameters you decide if you want to add tags
      * @param nav - dynamic header ("fixed"), static header ("static")
      * @param foot - includes footer in body ("true")
      */
-    public BootstrapBuilder(String nav, String sidebar, String foot) {
+    public BootstrapBuilder(String nav, String sidebar, String foot, String meta) {
         this.nav = nav;
         this.sidebar = sidebar;
         this.foot = foot;
+        this.meta = meta;
     }
+
+    public String getNav() {
+        return this.nav;
+    }
+
+    public void setNav(String nav) {
+        this.nav = nav;
+    }
+
+    public String getFoot() {
+        return this.foot;
+    }
+
+    public void setFoot(String foot) {
+        this.foot = foot;
+    }
+
+    public String getSidebar() {
+        return this.sidebar;
+    }
+
+    public void setSidebar(String sidebar) {
+        this.sidebar = sidebar;
+    }
+
+    public String getMeta() {
+        return this.meta;
+    }
+
+    public void setMeta(String meta) {
+        this.meta = meta;
+    }
+
 
     /**
      * Creates basic html code with basics and additionally wanted tags.
@@ -29,15 +64,36 @@ public class BootstrapBuilder {
     public String create() {
         String result = "<!doctype html>\n" +
                         "<html lang=\"pl\">\n"+
-                        "<meta charset=\"utf-8\">\n"+
-                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n"+
-                        "<meta name=\"description\" content=\"\">\n"+
-                        "<meta name=\"author\" content=\"\">\n"+
-                        "<title>Starter Template for Bootstrap</title>\n"+
-                        "<link rel=\"canonical\" href=\"https://getbootstrap.com/docs/4.0/examples/starter-template/\">\n"+
-                        "<link href=\"../../dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n";
+                        "<meta charset=\"utf-8\">\n";
 
         Head head = new Head();
+
+        String[] arrOfStr = meta.split(";");
+
+        for (String a : arrOfStr) {
+            if (a.equals("normal")) {
+                head.addComponent(new Meta("description"));
+                head.addComponent(new Meta("keywords"));
+                head.addComponent(new Meta("author"));
+                head.addComponent(new Meta("viewport"));
+            }
+            if (a.equals("tt")) {
+                head.addComponent(new Meta("twitter:card"));
+                head.addComponent(new Meta("twitter:creator"));
+                head.addComponent(new Meta("twitter:url"));
+                head.addComponent(new Meta("twitter:title"));
+                head.addComponent(new Meta("twitter:description"));
+                head.addComponent(new Meta("twitter:image"));
+            }
+            if (a.equals("og")) {
+                head.addComponent(new Meta("og:url"));
+                head.addComponent(new Meta("og:type"));
+                head.addComponent(new Meta("og:title"));
+                head.addComponent(new Meta("og:description"));
+                head.addComponent(new Meta("og:image"));
+            }
+        }
+
         result += head.toString();
 
         Body body = new Body();

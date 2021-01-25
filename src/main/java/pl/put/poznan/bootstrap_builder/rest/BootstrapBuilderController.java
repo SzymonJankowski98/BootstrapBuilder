@@ -14,8 +14,9 @@ public class BootstrapBuilderController {
     @GetMapping(value = "/template")
     public String test(@RequestParam(value="nav", defaultValue="none") String nav,
                        @RequestParam(value="sidebar", defaultValue="false") String sidebar,
-                       @RequestParam(value="footer", defaultValue="false") String foot) {
-        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(nav, sidebar, foot);
+                       @RequestParam(value="footer", defaultValue="false") String foot,
+                       @RequestParam(value="meta", defaultValue="false") String meta) {
+        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(nav, sidebar, foot, meta);
 
         Date date = new Date();
         logger.info(date.toString() + "User connected to server");

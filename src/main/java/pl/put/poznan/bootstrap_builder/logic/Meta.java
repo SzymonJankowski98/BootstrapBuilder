@@ -7,8 +7,8 @@ public class Meta extends HtmlComponent{
 
     String property;
 
-    public Meta(Boolean nav_fixed) {
-        this(new ArrayList<HtmlComponent>(), "");
+    public Meta(String property) {
+        this(new ArrayList<HtmlComponent>(), property);
     }
 
     public Meta(ArrayList<HtmlComponent> components, String property) {
@@ -29,19 +29,13 @@ public class Meta extends HtmlComponent{
     {
         StringBuilder result = new StringBuilder();
         if (!this.getTag().equals("")) {
-            result.append("<").append(this.getTag()).append("property=\"").append(this.getProperty()).append("\")").append("content=\"\"").append(">\n");
-        }
-        result.append(this.getContent());
-        if (!this.getContent().equals("")) {
-            result.append("\n");
+            result.append("<").append(this.getTag()).append(" property=\"").append(this.getProperty()).append("\"").append(" content=\"\"").append(">\n");
         }
         for (HtmlComponent comp : this.getComponents())
         {
             result.append(comp.toString());
         }
-        if (!this.getTag().equals("")) {
-            result.append("</").append(this.getTag()).append(">\n");
-        }
+
         return result.toString();
     }
 
